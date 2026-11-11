@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zombie Tasks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Zombie Tasks</h1>
+      <p class="tagline">Finish your tasks before they rise from the dead.</p>
+      <div class="score">Zombies killed: <span id="score">0</span> points</div>
+    </header>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="What do you need to do?" required>
+      <input type="datetime-local" id="task-due" required>
+      <button type="submit">Add task</button>
+    </form>
+    <ul id="task-list"></ul>
+    <p id="empty" class="empty">No tasks yet. The graveyard is quiet... for now.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

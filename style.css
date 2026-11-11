@@ -1,0 +1,116 @@
+:root {
+  --night: #1a1424;
+  --crypt: #2a2038;
+  --bone: #ece4d3;
+  --slime: #8fd14f;
+  --blood: #c0262d;
+  --pumpkin: #ff7a1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #3a2a4f, var(--night) 60%);
+  color: var(--bone);
+  font-family: "Special Elite", Georgia, serif;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+header { text-align: center; margin-bottom: 1.5rem; }
+
+h1 {
+  font-family: "Creepster", cursive;
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 0;
+  color: var(--slime);
+  text-shadow: 0 0 18px rgba(143, 209, 79, 0.45);
+}
+
+.tagline { margin: 0.25rem 0 1rem; opacity: 0.8; }
+
+.score {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--pumpkin);
+  border-radius: 999px;
+  color: var(--pumpkin);
+}
+
+#task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+input, button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 2px solid var(--crypt);
+}
+
+input { background: var(--crypt); color: var(--bone); }
+
+#task-input { flex: 1 1 220px; }
+
+button {
+  cursor: pointer;
+  background: var(--pumpkin);
+  color: var(--night);
+  border-color: var(--pumpkin);
+  font-weight: bold;
+}
+
+button:hover { filter: brightness(1.1); }
+
+ul { list-style: none; padding: 0; margin: 0; }
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.7rem;
+  background: var(--crypt);
+  border-left: 6px solid var(--slime);
+  border-radius: 8px;
+}
+
+.task .info { flex: 1; }
+.task .name { font-size: 1.1rem; word-break: break-word; }
+.task .due { font-size: 0.85rem; opacity: 0.7; }
+.task .icon { font-size: 1.8rem; }
+
+.task.zombie {
+  border-left-color: var(--blood);
+  background: #3a1a26;
+  animation: shake 0.6s infinite;
+}
+
+.task.zombie .due { color: #ff8a8a; opacity: 1; }
+
+.task.zombie button {
+  background: var(--blood);
+  border-color: var(--blood);
+  color: var(--bone);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.empty { text-align: center; opacity: 0.6; }
