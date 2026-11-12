@@ -67,6 +67,7 @@ function update() {
   document.body.classList.toggle('haunted', claimed.includes('theme'));
   if (claimed.includes('buddy')) $('buddy-message').textContent = 'Your Zombie Buddy is here. Let’s defeat those missions!';
 }
+$('zombie-companion').hidden = !claimed.includes('buddy');
 function formatDue(due) {
   const date = new Date(due);
   return Number.isNaN(date.getTime()) ? 'Invalid deadline' : date.toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
@@ -183,9 +184,10 @@ const buddyLines = [
   'Stay focused. The graveyard can wait.'
 ];
 let buddyIndex = 0;
-$('buddy-button').addEventListener('click', () => {
-  buddyIndex = (buddyIndex + 1) % buddyLines.length;
-  $('buddy-message').textContent = buddyLines[buddyIndex];
+
+document.getElementById('buddy-button').addEventListener('click', () => {
+    buddyIndex = (buddyIndex + 1) % buddyLines.length;
+    document.getElementById('buddy-message').textContent = buddyLines[buddyIndex];
 });
 $('notification-toggle').addEventListener('click', async () => {
   if (!('Notification' in window)) { toast('Notifications are not supported by this browser.'); return; }

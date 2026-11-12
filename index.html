@@ -46,11 +46,7 @@
       <label class="setting"><span>🔔 Browser notifications</span><button id="notification-toggle" class="small-button">Enable</button></label>
     </section>
 
-    <aside class="buddy-card">
-      <div class="buddy-face">🧟</div>
-      <div class="speech" id="buddy-message">Hey survivor! Let's finish those missions!</div>
-      <button id="buddy-button" class="buddy-button">Talk to your buddy</button>
-    </aside>
+    
 
     <section class="missions panel">
       <div class="panel-title"><span>📋</span><h2>Your Mission Board</h2></div>
@@ -64,6 +60,11 @@
       <div id="task-list" class="task-list"></div>
       <p id="empty" class="empty">No missions yet. Add one to begin your survival journey!</p>
     </section>
+<section class="buddy-card" id="zombie-companion" hidden>
+  <div class="buddy-face">🧟</div>
+  <p id="buddy-message">Hey survivor! Let's finish those missions!</p>
+  <button id="buddy-button" type="button">Talk to your buddy</button>
+</section>
 
     <footer>Stay alive. Complete missions. Become a legend.<small>Zombie Tasks © 2026 | Survival Edition</small></footer>
   </main>
