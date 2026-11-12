@@ -2,26 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zombie Tasks</title>
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zombie Tasks | Survival Mode</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Zombie Tasks</h1>
-      <p class="tagline">Finish your tasks before they rise from the dead.</p>
-      <div class="score">Zombies killed: <span id="score">0</span> points</div>
+  <div class="sky"><span class="moon"></span><span class="bat bat-one">✦</span><span class="bat bat-two">✧</span></div>
+  <div class="mist mist-one"></div><div class="mist mist-two"></div>
+
+  <main class="layout">
+    <header class="header">
+      <p class="eyebrow">YOUR PRODUCTIVITY SURVIVAL GAME</p>
+      <h1>ZOMBIE <span>TASKS</span></h1>
+      <p class="subtitle">Finish your tasks before they rise from the dead.</p>
+      <div class="survival-tag">☠ SURVIVAL MODE ACTIVATED ☠</div>
     </header>
-    <form id="task-form">
-      <input type="text" id="task-input" placeholder="What do you need to do?" required>
-      <input type="datetime-local" id="task-due" required>
-      <button type="submit">Add task</button>
-    </form>
-    <ul id="task-list"></ul>
-    <p id="empty" class="empty">No tasks yet. The graveyard is quiet... for now.</p>
+
+    <section class="stats">
+      <article class="stat"><span>🏅</span><div><small>Survivor Level</small><strong id="level">1</strong></div></article>
+      <article class="stat"><span>💎</span><div><small>Experience Points</small><strong id="score">0 XP</strong></div></article>
+      <article class="stat"><span>🪙</span><div><small>Coins</small><strong id="coins">0</strong></div></article>
+    </section>
+
+    <section class="progress panel">
+      <div class="panel-title"><span>☠</span><h2>Survivor Progress</h2></div>
+      <div class="progress-label"><span>Your Experience Points</span><strong id="xp-count">0 / 50 XP</strong></div>
+      <div class="bar"><div id="xp-progress"></div></div>
+      <p id="xp-message">Earn XP by completing missions.</p>
+    </section>
+
+    <section class="rewards panel">
+      <div class="panel-title"><span>🏆</span><h2>Unlock Your Rewards</h2></div>
+      <div class="reward-grid">
+        <button class="reward" data-reward="buddy"><span class="reward-icon">🧟</span><b>Zombie Buddy</b><small>Unlock at 50 XP</small><em id="status-buddy">🔒 LOCKED</em></button>
+        <button class="reward" data-reward="theme"><span class="reward-icon">🏚️</span><b>Haunted Theme</b><small>Unlock at 100 XP</small><em id="status-theme">🔒 LOCKED</em></button>
+        <button class="reward" data-reward="badge"><span class="reward-icon">💀</span><b>Survivor Badge</b><small>Unlock at 200 XP</small><em id="status-badge">🔒 LOCKED</em></button>
+      </div>
+    </section>
+
+    <section class="settings panel">
+      <div class="panel-title"><span>⚙</span><h2>Survivor Settings</h2></div>
+      <label class="setting"><span>🔊 Zombie alert sounds</span><input id="sound-toggle" type="checkbox" checked><i></i></label>
+      <label class="setting"><span>🔔 Browser notifications</span><button id="notification-toggle" class="small-button">Enable</button></label>
+    </section>
+
+    <aside class="buddy-card">
+      <div class="buddy-face">🧟</div>
+      <div class="speech" id="buddy-message">Hey survivor! Let's finish those missions!</div>
+      <button id="buddy-button" class="buddy-button">Talk to your buddy</button>
+    </aside>
+
+    <section class="missions panel">
+      <div class="panel-title"><span>📋</span><h2>Your Mission Board</h2></div>
+      <form id="task-form">
+        <label for="task-input">What is your next mission?</label>
+        <input id="task-input" type="text" placeholder="Enter your task..." maxlength="90" required>
+        <label for="task-due">Choose your deadline</label>
+        <input id="task-due" type="datetime-local" required>
+        <button class="add-button" type="submit">＋ ADD MISSION</button>
+      </form>
+      <div id="task-list" class="task-list"></div>
+      <p id="empty" class="empty">No missions yet. Add one to begin your survival journey!</p>
+    </section>
+
+    <footer>Stay alive. Complete missions. Become a legend.<small>Zombie Tasks © 2026 | Survival Edition</small></footer>
   </main>
+
+  <div id="reward-modal" class="modal">
+    <div class="modal-card"><button id="close-modal" class="close">×</button><div id="modal-icon" class="modal-icon">🧟</div><h2 id="modal-title">Reward unlocked!</h2><p id="modal-message"></p><button id="claim-button" class="add-button">CLAIM REWARD</button></div>
+  </div>
+  <div id="toast" class="toast"></div>
   <script src="script.js"></script>
 </body>
 </html>
